@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(version: 2018_11_13_165000) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index [nil], name: "index_events_on_user_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -50,10 +54,14 @@ ActiveRecord::Schema.define(version: 2018_11_13_165000) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "timezone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## BCrypt Hints
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* **Use BCrypt**. You must not store passwords in the DB.
+* `BCrypt::Password.create(password)` digests a password and builds a
+  `Password` object.
+* `BCrypt::Password.new(digest)` builds a `Password` object for the
+  digest.
+* `BCrypt::Password#is_password?(password)` checks if a password
+  matches a digest.

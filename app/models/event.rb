@@ -1,6 +1,12 @@
+
+
 class Event < ApplicationRecord
-  attr_accessible :name, :start_time
+
+  attr_accessor :name, :start_time
+  belongs_to :user
+  
 end
+
 
 # Model
 # SimpleCalendar will look for a method on your model called start_time. This is used to determine the day and time of the event. This should be a DateTime object or at least respond similarly.
