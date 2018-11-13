@@ -1,22 +1,11 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
-  end
-
-<<<<<<< HEAD
-
-  def index
-
-  end
 
   def new
     @user = User.new
   end
 
-=======
   def create
     @user = User.new(user_params)
->>>>>>> 557d6460948a5e53f7043c18b91ce437e1372109
 
     if @user.save
       sign_in(@user)

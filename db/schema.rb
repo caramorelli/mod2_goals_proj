@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2018_11_13_165000) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_date"
     t.integer "counter"
   end
 

@@ -1,15 +1,16 @@
 
 
 class GoalsController < ApplicationController
-<<<<<<< HEAD
+
   before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @current_user = User.find(id = 3)   #CHANGE THIS LATER
-    @first_goal = @current_user.goals[0]
-    @second_goal = @current_user.goals[1]
-    @third_goal = @current_user.goals[2]
-    @achievement = Achievement.new
+    # @current_user = User.find(id = 3)   #CHANGE THIS LATER
+    # @first_goal = @current_user.goals[0]
+    # @second_goal = @current_user.goals[1]
+    # @third_goal = @current_user.goals[2]
+    # @achievement = Achievement.new
+    @goals = Goal.all
   end
 
   def show
@@ -56,12 +57,4 @@ class GoalsController < ApplicationController
   end
 
 
-=======
-
-  def index
-    @goals = Goal.all
-  end
-
-  
->>>>>>> 557d6460948a5e53f7043c18b91ce437e1372109
 end
