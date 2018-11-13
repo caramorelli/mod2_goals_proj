@@ -1,7 +1,6 @@
 
 
 class GoalsController < ApplicationController
-<<<<<<< HEAD
   before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -56,12 +55,4 @@ class GoalsController < ApplicationController
   end
 
 
-=======
-
-  def index
-    @goals = Goal.all
-  end
-
-  
->>>>>>> 557d6460948a5e53f7043c18b91ce437e1372109
 end
