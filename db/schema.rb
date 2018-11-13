@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_164434) do
+ActiveRecord::Schema.define(version: 2018_11_13_165000) do
 
   create_table "achievements", force: :cascade do |t|
     t.boolean "completed"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_164434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_date"
+    t.integer "counter"
   end
 
   create_table "notes", force: :cascade do |t|

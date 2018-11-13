@@ -27,7 +27,7 @@ body, html {
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">YOUR CURRENT GOALS</h3>
+  <h3 class="w3-center"> <%= @current_user.name %>'s CURRENT GOALS</h3>
   <p class="w3-center w3-large">check the box if completed for <%= Time.now.strftime("%m/%d/%Y") %> </p>
 
 <!-- GOAL 1/3 -->
@@ -35,7 +35,7 @@ body, html {
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-third">
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">GOAL #1</p>
+      <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
       <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
@@ -44,18 +44,20 @@ body, html {
           <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
         </div>
       </form>
-
-      <br>
+    <br>
       <!-- INSERT NOTE FOR EACH HABIT  -->
       <%= form_for Note.new do |f| %>
-        <%= f.text_field :content %>
+      <%= f.text_area :content%>
+      <br>
+      <%= f.submit %>
       <% end %>
+
     </div>
 
 <!-- GOAL 2/3 -->
     <div class="w3-third">
       <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">GOAL #2</p>
+      <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
       <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
@@ -64,17 +66,19 @@ body, html {
           <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
         </div>
       </form>
-
       <br>
       <!-- INSERT NOTE FOR EACH HABIT  -->
       <%= form_for Note.new do |f| %>
-        <%= f.text_field :content %>
+      <%= f.text_area :content%>
+      <br>
+      <%= f.submit %>
       <% end %>
+
 <!-- GOAL 3/3 -->
     </div>
     <div class="w3-third">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">GOAL #3</p>
+      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal) %>  </p>
       <!-- BUTTON TO COMPLETE HABIT  -->
       <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
         <div>
@@ -82,12 +86,14 @@ body, html {
           <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
         </div>
       </form>
-
       <br>
       <!-- INSERT NOTE FOR EACH HABIT  -->
       <%= form_for Note.new do |f| %>
-        <%= f.text_field :content %>
+      <%= f.text_area :content%>
+      <br>
+      <%= f.submit %>
       <% end %>
+
     </div>
   </div>
 </div>

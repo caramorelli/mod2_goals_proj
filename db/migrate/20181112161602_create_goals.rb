@@ -3,7 +3,7 @@ class CreateGoals < ActiveRecord::Migration[5.2]
     create_table :goals do |t|
       t.string :name
       t.integer :weekly_occurance
-      
+      t.integer :goal_counter
       t.integer :user_id
 
       t.timestamps
