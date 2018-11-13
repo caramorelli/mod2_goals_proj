@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_164434) do
+ActiveRecord::Schema.define(version: 2018_11_12_161641) do
 
   create_table "achievements", force: :cascade do |t|
     t.boolean "completed"
@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(version: 2018_11_12_164434) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index [nil], name: "index_events_on_user_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -37,7 +41,6 @@ ActiveRecord::Schema.define(version: 2018_11_12_164434) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_date"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -49,10 +52,14 @@ ActiveRecord::Schema.define(version: 2018_11_12_164434) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "timezone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

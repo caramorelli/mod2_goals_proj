@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  # root to: 'sessions#new'
+  root to: 'sessions#new'
+
   resources :calendars
   resources :notes
   resources :achievements
   resources :goals
-  resources :users
+  resources :users, only: [:new, :create]
   resources :events
+  resource :session, only: [:new, :create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
