@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_145347) do
+ActiveRecord::Schema.define(version: 2018_11_15_145348) do
 
   create_table "achievements", force: :cascade do |t|
     t.boolean "completed", default: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_145347) do
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "goals", force: :cascade do |t|

@@ -1,0 +1,14 @@
+
+      <% @first_goal.achievements.reverse.each_with_index do |ach, idx| %>
+        <%= ach.created_at.strftime("%m/%d/%Y") - DateTime.now.strftime("%m/%d/%Y") %>
+
+        <%= ach.created_at.strftime("%A") %>
+        <%= ach.created_at.strftime("%m/%d/%Y") %>
+        <% @first_goal[:goal_counter] += 1  %>
+        <%= @first_goal[:goal_counter]  %>
+      <% end %>
+
+<!--
+      <% if @first_goal.created_at.strftime("%A") == DateTime.now.strftime("%A") && @first_goal.created_at.strftime("%m/%d/%Y") != DateTime.now.strftime("%m/%d/%Y") %>
+
+      <% end %> -->

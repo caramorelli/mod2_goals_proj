@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  # has_many :events
+  has_many :events
   has_many :goals
   has_many :achievements, through: :goals
   has_many :notes, through: :achievements
