@@ -16,9 +16,9 @@ class GoalsController < ApplicationController
   end
 
   def show
-    if @goal.achievements.size > 0
-      @notes = @goal.notes
-    end
+    # if @goal.achievements.size > 0
+    #   @notes = @goal.notes
+    # end
   end
 
   def new

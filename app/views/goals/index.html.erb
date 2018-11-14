@@ -38,69 +38,13 @@ body, html {
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
       <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
 
-      <!-- BUTTON TO COMPLETE HABIT  -->
-      <!--  need to associate the specific goal with the achievement-- send through the params -->
-      <!-- Rounded switch -->
-      <!-- <p>Click Me once Completed</p>
 
 
-    <button id="switch">Click Me once Completed</button>
-      <input type="checkbox"> -->
-
-
-    <button id="alert-button">Click Me For An Alert</button>
-
-    <input type="text" id="mystring">
-
-    <p id="mystring-reversed"></p>
-
-    <script>
-      const buttonEl = document.getElementById("alert-button");
-      buttonEl.addEventListener("click", event => {
-        alert("HELLO");
-      });
-
-      const inputEl = document.getElementById("mystring");
-      const pEl = document.getElementById("mystring-reversed");
-      inputEl.addEventListener("input", () => {
-        const value = inputEl.value;
-        pEl.textContent = value.split("").reverse().join("");
-      });
-
-      pEl.addEventListener("mouseover", () => {
-        alert("YOU MOUSED OVER ME!");
-      });
-    </script>
 
     <br>
 
       <!-- INSERT NOTE FOR EACH HABIT  -->
-      <button class="open-button" onclick="openForm()">Open Form</button>
 
-  <div class="form-popup" id="myForm">
-    <form action="/notes/new" class="form-container">
-      <h1>Login</h1>
-
-      <label for="goal"><b>Goal</b></label>
-      <input type="text" placeholder="Enter Goal Name" name="goal" required>
-
-      <label for="note"><b>Your Note: </b></label>
-      <input type="text_field" placeholder="Enter Note" name="note" required>
-
-      <button type="submit" class="btn">Add Note</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-  </div>
-
-<script>
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-</script>
 
     </div>
 
@@ -110,35 +54,61 @@ function closeForm() {
       <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
-      <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
-        <div>
-          <input data-remote="true" type="submit" value="complete">
-          <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
-        </div>
-      </form>
+
+
+
       <br>
       <!-- INSERT NOTE FOR EACH HABIT  -->
-      <%= form_for Note.new do |f| %>
-      <%= f.text_area :content%>
-      <br>
-      <%= f.submit %>
-      <% end %>
+
 
 <!-- GOAL 3/3 -->
     </div>
     <div class="w3-third">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal) %>  </p>
-      <!-- BUTTON TO COMPLETE HABIT  -->
-      <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
-        <div>
-          <input data-remote="true" type="submit" value="complete">
-          <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
-        </div>
-      </form>
-      <br>
 
+
+      <!-- BUTTON TO COMPLETE HABIT  -->
+
+
+
+      <br>
 
     </div>
   </div>
 </div>
+
+<button class="open-button" onclick="openForm()">Open Form</button>
+
+<div class="form-popup" id="myForm">
+<form action="/achievements/new" class="form-container">
+<h1>Acomplished Goal</h1>
+
+<label for="goal"><b>Goal</b></label>
+<select>
+  <option value= <%= @first_goal %> ><%= @first_goal.name  %></option>
+  <option value= <%= @second_goal %> ><%= @second_goal.name  %></option>
+  <option value= <%= @third_goal %> ><%= @third_goal.name  %></option>
+</select>
+<!-- select -->
+
+<div class="onoffswitch">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+<label class="onoffswitch-label" for="myonoffswitch"></label>
+</div>
+<p>Click once daily goal is completed:</p> <br>
+
+<button type="submit" class="btn"></button>
+<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+</form>
+</div>
+
+<script>
+function openForm() {
+document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+document.getElementById("myForm").style.display = "none";
+}
+</script>
