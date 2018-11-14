@@ -1,1 +1,15 @@
-<%= render "form" %>
+EDIT FORM
+<br>
+<br>
+
+GOAL: <%= @goal.name %>
+Be careful! Changing target # of days a week will reset the counter!
+<br>
+<br>
+<%= form_for @goal do |f| %>
+  <%= f.label :weekly_occurance, "Number of days in a week:"%>
+  <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+  <%= f.hidden_field :goal_counter, :value => 0 %>
+  <%= f.submit %>
+
+<% end %>
