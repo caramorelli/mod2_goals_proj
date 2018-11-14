@@ -1,24 +1,20 @@
 
 
 class GoalsController < ApplicationController
-
   before_action :find_goal, only: [:show, :edit, :update, :destroy]
-  before_action :current_user, only: [:index]
+  before_action :current_user, only: [:index, :new, :create]
 
   def index
-    # goals_list = [@first_goal, @second_goal, @third_goal]
-    # 0.upto(@current_user.goals.length - 1) do |int|
-    #   goals_list[int] = @current_user.goals[int]
-    # end
-    @first_goal = @current_user.goals[0]
-    @second_goal = @current_user.goals[1]
-    @third_goal = @current_user.goals[2]
+    if @current_user.goals.length == 3
+      @first_goal = @current_user.goals[0]
+      @second_goal = @current_user.goals[1]
+      @third_goal = @current_user.goals[2]
+    else
+      redirect_to new_goal_path
+    end
   end
 
   def show
-    if @goal.achievements.size > 0
-      @notes = @goal.notes
-    end
   end
 
   def new
@@ -26,11 +22,8 @@ class GoalsController < ApplicationController
   end
 
   def create
-    byebug
-    @current_user
     @goal = Goal.create(goal_params)
       if @goal.valid?
-
         redirect_to @goal
       else
         flash[:errors] = @goal.errors.full_messages
@@ -52,7 +45,8 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    redirect_to destroy_users_path
+    @goal.destroy
+    redirect_to goals_path
   end
 
   private
@@ -62,7 +56,7 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).require(:name, :weekly_occurance, :user_id)
+    params.require(:goal).permit(:name, :weekly_occurance, :user_id, :goal_counter)
   end
 
 
