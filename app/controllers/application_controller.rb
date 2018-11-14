@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # Expose these methods to the views
   helper_method :current_user, :signed_in?
 
-  private
+  # private
   def current_user
     @current_user ||= User.find_by_session_token(session[:session_token])
   end
@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   def sign_out
     current_user.try(:reset_token!)
     session[:session_token] = nil
+    # redirect_to sessions_new
+    redirect_to new_session_url
   end
 
   def require_signed_in!

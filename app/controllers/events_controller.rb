@@ -5,8 +5,13 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @goals = Goal.all
+    @goals = current_user.goals
+    @notes = current_user.notes
   end
+
+  # this could be where the notes will be shown (at bottom of the page )
+
+  # also whenever an achievement is made- will create an event so that it is rendered on the calendar
 
   # GET /events/1
   # GET /events/1.json
@@ -29,7 +34,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event, notice: 'Great job, you completed your goal for today.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -43,7 +48,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'Goal activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -54,13 +59,13 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   # DELETE /events/1.json
-  def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully removed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @event.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to events_url, notice: 'Event was successfully removed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

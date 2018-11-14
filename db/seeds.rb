@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-usr1 = User.create( name: 'Jim', email: '', password: '' )
-usr2 = User.create( name: 'Pam', email: '', password: '' )
-usr1 = User.create( name: 'Michael', email: '', password: '' )
-usr2 = User.create( name: 'Dwight', email: '', password: '' )
+usr1 = User.create( name: 'Jim', username: 'jimmyBean', password: 'beanybaby' )
+usr2 = User.create( name: 'Pam', username: '', password: '' )
+usr1 = User.create( name: 'Michael', username: '', password: '' )
+usr2 = User.create( name: 'Dwight', username: '', password: '' )
 
 goal1 = Goal.create( name: 'Call Mom', weekly_occurance: 4, user_id: usr1.id)
 goal2 = Goal.create( name: 'Stop Smoking', weekly_occurance: 7, user_id: usr1.id )

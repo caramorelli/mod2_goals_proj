@@ -1,11 +1,14 @@
 class User < ApplicationRecord
-  # has_secuure_password # -- comes from active model
+  # has_secure_password # -- comes from active model
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   attr_reader :password
 
   has_many :events
+  has_many :goals
+  has_many :achievements, through: :goals
+  has_many :notes, through: :achievements
 
   after_initialize :ensure_session_token
 

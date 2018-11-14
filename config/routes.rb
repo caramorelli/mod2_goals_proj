@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  # root to: 'sessions#new'
+
+
+  # root to: 'users#index'
+
   root to: 'sessions#new'
 
   resources :calendars

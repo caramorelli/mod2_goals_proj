@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
 
+  def index
+    # current_user ? redirect_to events_path : redirect_to login_path
+    if current_user
+      redirect_to goals_path 
+    else
+      redirect_to login_path
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -9,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to events
+      redirect_to events_path
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

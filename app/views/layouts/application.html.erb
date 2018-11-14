@@ -32,8 +32,8 @@
 
   <body>
     <% if signed_in? %>
-      <%= current_user.username %>
-      <form action="<%= session_url %>" method="post">
+      <%= current_user.name %>
+      <form action="<%= goals_path %>" method="post">
         <%= auth_token_input %>
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Sign Out">

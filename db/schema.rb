@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_165000) do
+ActiveRecord::Schema.define(version: 2018_11_14_160128) do
 
   create_table "achievements", force: :cascade do |t|
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.integer "goal_id"
     t.integer "calendar_id"
     t.datetime "created_at", null: false
