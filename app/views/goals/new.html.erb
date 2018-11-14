@@ -1,1 +1,14 @@
-<%= render "form" %>
+<br>
+<br>
+
+
+<%= form_for @goal do |f| %>
+  <%= f.label :name, "Goal Name"%>
+  <%= f.text_field :name %>
+  <%= f.label :weekly_occurance%>
+  <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+  <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <%= f.hidden_field :goal_counter, :value => 0 %>
+  <%= f.submit %>
+
+<% end %>

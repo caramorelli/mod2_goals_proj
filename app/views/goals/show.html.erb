@@ -40,24 +40,20 @@ body, html {
 <h3 class="w3-padding-16 w3-text-dark-grey">GOAL : <%= @goal.name %> <br> Target # of days in a week : <%= @goal.weekly_occurance %> </h3>
 <br>
 <br>
+<%= link_to "EDIT", edit_goal_path(@goal)%>
+<br>
+<br>
+
 <!-- CALENDAR-->
 INSERT AWESOME CALENDAR HERE
 <br>
 <br>
 <br>
 <!-- PROGRESS BAR  -->
-    <p class="w3-wide"> % to completion</p>
+    <!-- <p class="w3-wide"> % to completion</p>
     <div class="w3-white">
       <div class="w3-dark-grey" style="height:30px;width:40%"></div>
     </div>
-    <br>
+    <br> -->
 
 <!-- NOTES  -->
-<p class="w3-wide">NOTES:</p>
-  <% if @notes %>
-    <% @notes.each do |n| %>
-    <%= n %>
-    <% end %>
-  <% else %>
-    <p>"NO NOTES YET"</p>
-    <% end %>
