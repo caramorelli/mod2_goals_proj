@@ -1,0 +1,13 @@
+<br>
+<br>
+
+
+<%= form_for @goal do |f| %>
+  <%= f.label :name, "Goal Name"%>
+  <%= f.text_field :name %>
+  <%= f.label :weekly_occurance%>
+  <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+
+  <%= f.submit %>
+
+<% end %>

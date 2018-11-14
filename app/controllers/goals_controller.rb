@@ -24,6 +24,8 @@ class GoalsController < ApplicationController
   end
 
   def create
+    byebug
+    @current_user
     @goal = Goal.create(goal_params)
       if @goal.valid?
         redirect_to @goal
