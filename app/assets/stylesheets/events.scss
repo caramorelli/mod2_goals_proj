@@ -2,12 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// style {
+//   position: relative;
+//  overflow: scroll;
+//  width: 1000px;
+//  height: 800px;
+//
+// }
+
 .event_label {
   width: 90%;
   padding: 3px;
   box-sizing: border-box;
   background-color: lightblue;
-  font-family: 'Berkshire Swash', cursive;
+  // font-family: 'Berkshire Swash', cursive;
+  font-family: 'Peralta', cursive;
 }
 
 h1 {
@@ -17,6 +26,7 @@ h1 {
 
 
 #background_img {
+  // overflow: scroll;
     background-image: url("new.jpg");
     height: 100%;
     // background-position: fixed;

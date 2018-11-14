@@ -14,6 +14,14 @@
  *= require_self
  */
  *= require simple_calendar
+/* 
+ style {
+   position: relative;
+  overflow: scroll;
+  width: 1000px;
+  height: 800px;
+
+ } */
 
  /* overflow {
    -webkit-overflow-scroll: touch

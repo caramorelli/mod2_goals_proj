@@ -2,13 +2,24 @@
 //   background-image: url("cal_soccer.jpg");
 // }
 
+
+// style {
+//   position: relative;
+//  overflow: scroll;
+//  width: 1000px;
+//  height: 800px;
+//
+// }
+
 .simple-calendar {
+  -webkit-overflow-scroll: touch;
   padding-top: 200px;
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
-  position: center;
+  overflow: scroll;
   table {
+    -webkit-overflow-scroll: touch;
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgba(0, 0, 0, 0);

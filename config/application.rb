@@ -11,6 +11,8 @@ module Goals
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    
+
     config.time_zone = 'Central Time (US & Canada)'
 
     config.beginning_of_week = :sunday
