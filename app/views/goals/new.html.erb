@@ -1,5 +1,5 @@
 <div class="splash-image">
-    <div class="w3-container" style="padding:55px 16px" id="about">
+    <div class="w3-container" style="padding:30px 16px" id="about">
 
         <div class="ui block header" id="splash-box">
         <!-- About Section -->
@@ -10,16 +10,16 @@
       <% end %>
 
       <h5><%= image_tag "bluegree.png" %></h5>
-      <h1 class="ui header"> Add a New Goal</h1>
+      <h2 class="ui header"> Add a New Goal</h2>
 
 
       <%= form_for @goal, :html => {class: "ui form"} do |f|  %>
       <div class="field">
-        <h4><%= f.label :name, "Goal Name"%> </h4>
+        <h5><%= f.label :name, "Goal Name"%> </h5>
         <%= f.text_field :name %>
         </div>
           <div class="field">
-       <h4> <%= f.label :weekly_occurance, "Target Number of Days in a Week"%> </h4>
+       <h5> <%= f.label :weekly_occurance, "Target Number of Days in a Week"%> </h5>
         <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
         </div>
       <%= f.hidden_field :user_id, :value => @current_user.id %>
