@@ -27,6 +27,51 @@ body, html {
 <body>
 
 
+  <button class="open-button" onclick="openForm()">Open Form</button>
+
+  <div class="form-popup" id="myForm">
+  <form action="/achievements/create" class="form-container">
+    <h1>Acomplished Goal</h1>
+
+    <label for="goal"><b>Goal</b></label>
+    <select>
+      <option value= <%= @first_goal %> ><%= @first_goal.name  %></option>
+      <option value= <%= @second_goal %> ><%= @second_goal.name  %></option>
+      <option value= <%= @third_goal %> ><%= @third_goal.name  %></option>
+    </select>
+  <!-- select -->
+
+    <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+    <label class="onoffswitch-label" for="myonoffswitch"></label>
+    </div>
+    <p>Click once daily goal is completed:</p> <br>
+
+  <!-- <button type="submit" class="btn" ></button> -->
+
+
+
+  </div>
+
+  <script>
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+
+  <script>
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  }
+  </script>
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
@@ -39,9 +84,6 @@ body, html {
     <div class="w3-third">
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
       <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
-
-    <%= button_to 'Complete Goal', button_path(@first_goal), method: :get %>
-
 
 
 
@@ -62,7 +104,7 @@ body, html {
       <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
-        <%= button_to 'Complete Goal', button_path(@second_goal), method: :get %>
+
 
 
       <br>
@@ -73,19 +115,7 @@ body, html {
     </div>
     <div class="w3-third">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal)
-
-         %>  </p>
-
-         <%= button_to "Click", button_path(@third_goal), { :onclick => "debugger", :class=>"button", :method => :post }  %>
-
-
-
-      <!-- <button onclick="myFunction()">Completed Goal!</button> -->
-
-
-
-
+      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal) %>  </p>
 
 
       <!-- BUTTON TO COMPLETE HABIT  -->

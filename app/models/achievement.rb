@@ -1,5 +1,5 @@
 class Achievement < ApplicationRecord
   belongs_to :goal
-  belongs_to :calendar
+  has_one :event
   has_many :notes
 end

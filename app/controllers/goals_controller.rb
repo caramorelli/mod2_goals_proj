@@ -5,7 +5,8 @@ class GoalsController < ApplicationController
   before_action :current_user, only: [:index, :new, :create]
 
   def index
-    if @current_user.goals.length == 3
+
+    if @current_user.goals.length >= 3
       @first_goal = @current_user.goals[0]
       @second_goal = @current_user.goals[1]
       @third_goal = @current_user.goals[2]
@@ -15,12 +16,7 @@ class GoalsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
-    # if @goal.achievements.size > 0
-    #   @notes = @goal.notes
-    # end
-=======
->>>>>>> 16bc7c691699f85d6243054da4e47ea93566ffb2
+
   end
 
   def new

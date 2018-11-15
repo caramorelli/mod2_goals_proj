@@ -1,14 +1,21 @@
 class AchievementsController < ApplicationController
 
+  def index
+    @achievements = Achievement.all
+
+  end
+
   def new
     @achievement = Achievement.new
   end
 
   def create
-    @achievement = Achievement.create(params.require(:achievement).permit(:completed, :goal_id))
-  end
+    byebug
+    @achievement = Achievement.create( { completed: true, goal_id: params[:id] } )
 
-  def show
+    redirect_to new_event_path(@achievement)
+    # new_event_path(@achievement)
+    # @achievement = Achievement.create(params.require(:achievement).permit(:completed, :goal_id))
   end
 
 end

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'sessions#new'
 
+  get '/button', to: 'achievements#create', as: 'button'
+
   resources :calendars
   resources :notes
   resources :achievements

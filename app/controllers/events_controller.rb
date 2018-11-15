@@ -20,7 +20,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.create( name: 'hi', start_time: DateTime.now )
+    # @event = Event.new
   end
 
   # GET /events/1/edit
