@@ -1,33 +1,7 @@
 
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-body, html {
-    height: 100%;
-    line-height: 1.8;
-}
-/* Full height image header */
-.bgimg-1 {
-    background-position: center;
-    background-size: cover;
-    background-image: url("/w3images/mac.jpg");
-    min-height: 100%;
-}
-.w3-bar .w3-button {
-    padding: 16px;
-}
-</style>
-<body>
 
 <!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
+<div class="w3-container" style="padding:100px 16px" id="about">
   <h3 class="w3-center"> <%= @current_user.name.upcase %>'s CURRENT GOALS</h3>
   <p class="w3-center w3-large">check the box if completed for <%= Time.now.strftime("%m/%d/%Y") %> </p>
 
@@ -39,73 +13,17 @@ body, html {
       <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
-      <!--  need to associate the specific goal with the achievement-- send through the params -->
-      <!-- Rounded switch -->
-      <!-- <p>Click Me once Completed</p>
 
 
-    <button id="switch">Click Me once Completed</button>
-      <input type="checkbox"> -->
+      <%= form_for @achievement do |f| %>
+        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :completed, :value => true %>
+        <%= f.submit 'complete!' %>
+      <% end %>
 
-
-    <button id="alert-button">Click Me For An Alert</button>
-
-    <input type="text" id="mystring">
-
-    <p id="mystring-reversed"></p>
-
-    <script>
-      const buttonEl = document.getElementById("alert-button");
-      buttonEl.addEventListener("click", event => {
-        alert("HELLO");
-      });
-
-      const inputEl = document.getElementById("mystring");
-      const pEl = document.getElementById("mystring-reversed");
-      inputEl.addEventListener("input", () => {
-        const value = inputEl.value;
-        pEl.textContent = value.split("").reverse().join("");
-      });
-
-      pEl.addEventListener("mouseover", () => {
-        alert("YOU MOUSED OVER ME!");
-      });
-    </script>
-
-    <br>
-
-      <!-- INSERT NOTE FOR EACH HABIT  -->
-      <button class="open-button" onclick="openForm()">Open Form</button>
-
-  <div class="form-popup" id="myForm">
-    <form action="/notes/new" class="form-container">
-      <h1>Login</h1>
-
-      <label for="goal"><b>Goal</b></label>
-      <input type="text" placeholder="Enter Goal Name" name="goal" required>
-
-      <label for="note"><b>Your Note: </b></label>
-      <input type="text_field" placeholder="Enter Note" name="note" required>
-
-      <button type="submit" class="btn">Add Note</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-  </div>
-
-<script>
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-</script>
-
-<!-- LINK TO DELETE GOAL -->
-<%= link_to "DELETE", goal_path(@first_goal), method: :delete %>
+      <!-- LINK TO DELETE GOAL -->
+      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
     </div>
-
 
 <!-- GOAL 2/3 -->
     <div class="w3-third">
@@ -113,35 +31,36 @@ function closeForm() {
       <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
-      <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
-        <div>
-          <input data-remote="true" type="submit" value="complete">
-          <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
-        </div>
-      </form>
-      <br>
-      <!-- INSERT NOTE FOR EACH HABIT  -->
-      <%= form_for Note.new do |f| %>
-      <%= f.text_area :content%>
-      <br>
-      <%= f.submit %>
+
+
+      <%= form_for @achievement do |f| %>
+        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :completed, :value => true %>
+        <%= f.submit 'complete!' %>
       <% end %>
 
+      <!-- LINK TO DELETE GOAL -->
+      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      </div>
+
+
 <!-- GOAL 3/3 -->
-    </div>
     <div class="w3-third">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal) %>  </p>
       <!-- BUTTON TO COMPLETE HABIT  -->
-      <form action="/ideas/claim?class=btn+btn-small&amp;idea_id=4&amp;remote=true" class="button_to" method="post">
-        <div>
-          <input data-remote="true" type="submit" value="complete">
-          <input name="authenticity_token" type="hidden" value="pU3umgqrDx3WbalfNK10c9H5B5N4OzPpohs4bWW8mow=">
-        </div>
-      </form>
-      <br>
 
 
+      <%= form_for @achievement do |f| %>
+        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :completed, :value => true %>
+        <%= f.submit 'complete!' %>
+      <% end %>
+
+      <!-- LINK TO DELETE GOAL -->
+      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
     </div>
+
+
   </div>
 </div>
