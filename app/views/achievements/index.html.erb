@@ -1,0 +1,6 @@
+<h1>Achievements</h1>
+
+<% @achievements.each do |ach| %>
+  <%= ach.completed %>
+  <%= ach.goals.name %>
+<% end  %>

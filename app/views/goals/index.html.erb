@@ -1,5 +1,7 @@
 
 
+
+
 <!-- About Section -->
 <div class="w3-container" style="padding:100px 16px" id="about">
   <h3 class="w3-center"> <%= @current_user.name.upcase %>'s CURRENT GOALS</h3>
@@ -39,6 +41,7 @@
         <%= f.submit 'complete!' %>
       <% end %>
 
+
       <!-- LINK TO DELETE GOAL -->
       <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
       </div>
@@ -47,7 +50,22 @@
 <!-- GOAL 3/3 -->
     <div class="w3-third">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal) %>  </p>
+      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal)
+
+         %>  </p>
+
+         <%= button_to "Click", button_path(@third_goal), { :onclick => "debugger", :class=>"button", :method => :post }  %>
+
+
+
+
+      <!-- <button onclick="myFunction()">Completed Goal!</button> -->
+
+
+
+
+
+
       <!-- BUTTON TO COMPLETE HABIT  -->
 
 
@@ -59,8 +77,12 @@
 
       <!-- LINK TO DELETE GOAL -->
       <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+
     </div>
 
 
   </div>
 </div>
+
+
+</body>

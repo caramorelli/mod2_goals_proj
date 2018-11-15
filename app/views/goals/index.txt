@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/w3images/mac.jpg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+</style>
+<body>
+
+
+  <button class="open-button" onclick="openForm()">Open Form</button>
+
+  <div class="form-popup" id="myForm">
+  <form action="/achievements/create" class="form-container">
+    <h1>Acomplished Goal</h1>
+
+    <label for="goal"><b>Goal</b></label>
+    <select>
+      <option value= <%= @first_goal %> ><%= @first_goal.name  %></option>
+      <option value= <%= @second_goal %> ><%= @second_goal.name  %></option>
+      <option value= <%= @third_goal %> ><%= @third_goal.name  %></option>
+    </select>
+  <!-- select -->
+
+    <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+    <label class="onoffswitch-label" for="myonoffswitch"></label>
+    </div>
+    <p>Click once daily goal is completed:</p> <br>
+
+  <!-- <button type="submit" class="btn" ></button> -->
+
+
+
+  </div>
+
+  <script>
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+
+  <script>
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center"> <%= @current_user.name.upcase %>'s CURRENT GOALS</h3>
+  <p class="w3-center w3-large">check the box if completed for <%= Time.now.strftime("%m/%d/%Y") %> </p>
+
+<!-- GOAL 1/3 -->
+
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-third">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
+
+
+
+
+    <br>
+
+      <!-- INSERT NOTE FOR EACH HABIT  -->
+
+
+<!-- LINK TO DELETE GOAL -->
+<%= link_to "DELETE", goal_path(@first_goal), method: :delete %>
+    </div>
+
+
+<!-- GOAL 2/3 -->
+    <div class="w3-third">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
+
+      <!-- BUTTON TO COMPLETE HABIT  -->
+
+
+
+      <br>
+      <!-- INSERT NOTE FOR EACH HABIT  -->
+
+
+<!-- GOAL 3/3 -->
+    </div>
+    <div class="w3-third">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal) %>  </p>
+
+
+      <!-- BUTTON TO COMPLETE HABIT  -->
+
+
+
+      <br>
+
+    </div>
+  </div>
+</div>
+
+
+</body>

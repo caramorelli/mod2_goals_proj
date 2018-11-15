@@ -2,11 +2,7 @@ class UsersController < ApplicationController
 
   def index
     # current_user ? redirect_to events_path : redirect_to login_path
-    if current_user
-      redirect_to goals_path 
-    else
-      redirect_to login_path
-    end
+    
   end
 
   def new

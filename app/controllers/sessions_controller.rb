@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
 
   def new
-    # unless current_user.nil?
-    #   redirect_to events_path
-    # end
+    if current_user
+      redirect_to goals_path
+  
+    end
   end
 
   def create
