@@ -1,9 +1,21 @@
-<%= form_for(@event) do |f| %>
 
-  <h3>Awesome you completed your goal for the day!</h3>
+<div class="splash-image">
+    <div class="w3-container" style="padding:100px 16px" id="about">
 
-  <%= f.hidden_field :start_time, :value => @achievement.created_at %>
-  <%= f.hidden_field :name, :value => @goal.name %>
-  <%= f.submit %>
+        <div class="ui block header" id="splash-box">
 
-<% end %>
+      <%= form_for(@event) do |f| %>
+
+        <h3 class="ui header">Awesome you completed your goal for the day!</h3>
+
+        <img src="https://media.giphy.com/media/pQtfj3DowAhDG/giphy.gif">
+      </img>
+<br> <br>
+        <%= f.hidden_field :start_time, :value => @achievement.created_at %>
+        <%= f.hidden_field :name, :value => @goal.name %>
+        <%= f.submit "Accept Compliment" %>
+
+      <% end %>
+      </div>
+    </div>
+   </div>
