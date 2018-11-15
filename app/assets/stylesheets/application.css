@@ -14,3 +14,12 @@
  *= require_self
  */
  *= require simple_calendar
+
+ 
+ .splash-image {
+   background-image: url("https://cms-assets.tutsplus.com/uploads/users/1604/posts/28720/final_image/Pizza-Pattern-Final-Result.jpg");
+   height: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
