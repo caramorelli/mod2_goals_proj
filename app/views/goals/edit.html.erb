@@ -1,33 +1,27 @@
 <div class="splash-image">
+    <div class="w3-container" style="padding:55px 16px" id="about">
 
-<div class="ui three column grid">
-  <!-- first column -->
-  <div class="column"></div>
-
-  <!-- second column -->
-
-  <div class="column" id="splash-box-signin">
-    <% if flash[:errors] %>
-    <% flash[:errors].each do |e| %>
-    <h6, style="color:red;"> <%= e %></h6>
-    <% end %>
-    <% end %>
-    <h1 class="ui header"> GOAL: <%= @goal.name.upcase %></h1>
-    <h5 class="w3-center"> Be careful! Changing target # of days a week will reset the counter!</h5>
-
-
-    <br>
-    <div class="w3-center">
-      <%= form_for @goal, class:"ui form" do |f|  %>
-      <div class="field">
-        <%= f.label :weekly_occurance, "New Target Number of Days in a Week"%>
-        <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
-      </div>
-
-      <%= f.hidden_field :goal_counter, :value => 0 %>
-      <%= f.submit "⚽️" %>
-
+        <div class="ui block header" id="splash-box">
+  <h5><%= image_tag "referee.png" %></h5>
+      <!-- About Section -->
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |e| %>
+          <h6> <%= e %></h6>
+        <% end %>
       <% end %>
-  </div>
-<!-- third column -->
-<div class="column"></div>
+      <h1 class="ui header"> GOAL: <%= @goal.name.upcase %></h1>
+      <h5 class="ui sub header"> Be careful! Changing target # of days a week will reset the counter!</h5>
+        <br>
+
+          <%= form_for @goal, :html => {class: "ui form"} do |f|  %>
+          <div class="field">
+            <h5><%= f.label :weekly_occurance, "New Target Number of Days in a Week"%></h5>
+            <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+          </div>
+
+          <%= f.submit "⚽️", class: "positive ui button"%>
+
+          <% end %>
+
+    </div>
+    </div>
