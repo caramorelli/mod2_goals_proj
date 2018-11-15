@@ -10,9 +10,8 @@ class AchievementsController < ApplicationController
   end
 
   def create
-    byebug
     @achievement = Achievement.create( { completed: true, goal_id: params[:id] } )
-
+    byebug
     redirect_to new_event_path(@achievement)
     # new_event_path(@achievement)
     # @achievement = Achievement.create(params.require(:achievement).permit(:completed, :goal_id))
