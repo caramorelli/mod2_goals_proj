@@ -36,14 +36,14 @@
 
 
       <%= form_for @achievement do |f| %>
-        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :goal_id, :value => @second_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
         <%= f.submit 'complete!' %>
       <% end %>
 
 
       <!-- LINK TO DELETE GOAL -->
-      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      <%= link_to "Delete this goal", goal_path(@second_goal), method: :delete %>
       </div>
 
 
@@ -61,13 +61,13 @@
 
 
       <%= form_for @achievement do |f| %>
-        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :goal_id, :value => @third_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
         <%= f.submit 'complete!' %>
       <% end %>
 
       <!-- LINK TO DELETE GOAL -->
-      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      <%= link_to "Delete this goal", goal_path(@third_goal), method: :delete %>
 
     </div>
 

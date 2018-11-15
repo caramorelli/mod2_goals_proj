@@ -7,13 +7,15 @@ class AchievementsController < ApplicationController
 
   def new
     @achievement = Achievement.new
+    @event = Event.new
   end
 
   def create
     @achievement = Achievement.create(params.require(:achievement).permit(:completed, :goal_id))
 
-    # @event = Event.new
-    redirect_to new_event_path
+    # @event = Event.create( { name: @achievement.goal.name, start_time: @achievement.created_at } )
+
+    redirect_to create_event_path(@achievement.id)
   end
 
   def show

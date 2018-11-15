@@ -2,9 +2,9 @@
 
 class Event < ApplicationRecord
 
-  attr_accessor :name, :start_time, :end_time
-  belongs_to :user
-  belongs_to :achievement
+  # attr_accessor :name, :start_time
+  # belongs_to :user
+  # belongs_to :achievement
 
 end
 

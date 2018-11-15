@@ -20,8 +20,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @current_user = current_user
     @event = Event.new
+    @achievement = Achievement.find_by(id: params[:id])
+    @goal = @achievement.goal
   end
 
   # GET /events/1/edit
@@ -30,19 +31,16 @@ class EventsController < ApplicationController
 
   # POST /events
   # POST /events.json
-  def create
-    @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Great job, you completed your goal for today.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    def create
+      @event = Event.new
+      @event.name = params[:event][:name]
+      @event.start_time = params[:event][:start_time].to_datetime
+      @event.save
+      
+      redirect_to events_path
     end
-  end
+
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
