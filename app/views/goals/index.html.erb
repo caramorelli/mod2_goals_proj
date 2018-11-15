@@ -19,6 +19,13 @@
  <br>
       <!-- BUTTON TO COMPLETE HABIT  -->
 
+      <% if @first_goal.achievements.length > 0 %>
+      
+      <% else %>
+
+
+      <% end %>
+
 
       <%= form_for @achievement do |f| %>
         <%= f.hidden_field :goal_id, :value => @first_goal.id %>
@@ -66,6 +73,8 @@
       <!-- BUTTON TO COMPLETE HABIT  -->
 <br>
 
+
+
       <%= form_for @achievement do |f| %>
         <%= f.hidden_field :goal_id, :value => @third_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
@@ -76,6 +85,7 @@
       <%= button_to "Delete this goal", goal_path(@third_goal), method: :delete, class: "negative ui button"%>
 
     </div>
+
 
 
   </div>
