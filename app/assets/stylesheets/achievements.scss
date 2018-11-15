@@ -1,3 +1,28 @@
 // Place all the styles related to the Achievements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.splash-image {
+  background-image: url(fieldstripes.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#splash-box {
+  top: 200px;
+  background-color: white;
+  text-align: center;
+  margin-right: 400px;
+  margin-left: 400px;
+  opacity: 0.95;
+  border: 1px solid black;
+}
+
+#splash-box-signin {
+  top: 100px;
+  background-color: white;
+  text-align: center;
+  opacity: 0.95;
+  border: 1px solid black;
+}

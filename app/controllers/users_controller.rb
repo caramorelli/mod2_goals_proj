@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     # current_user ? redirect_to events_path : redirect_to login_path
-    
+
   end
 
   def new
@@ -11,13 +11,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    if @user.save
+    if @user.valid?
       sign_in(@user)
       redirect_to events_path
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 

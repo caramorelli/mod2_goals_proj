@@ -1,6 +1,24 @@
-<h2>Sign Up</h2>
+<div class="splash-image">
 
-<form action="<%= users_url %>" method="post">
+  <div class="ui three column grid">
+    <!-- first column -->
+    <div class="column"></div>
+
+
+
+    <!-- second column -->
+
+    <div class="column" id="splash-box-signin">
+
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |e| %>
+        <h6> <%= e %></h6>
+        <% end %>
+        <% end %>
+
+
+    <h1 class="ui header"> Sign Up</h1>
+<form action="<%= users_url %>" method="post" class="ui form">
   <%= auth_token_input %>
 
   <label>
@@ -18,5 +36,10 @@
     <input type="password" name="user[password]" value="">
   </label>
 
-  <input type="submit" value="Sign Up">
-</form>
+              <button class="ui button" type="submit">Let's go!</button>
+              <br>
+
+          <br>
+  </div>
+<!-- third column -->
+<div class="column"></div>

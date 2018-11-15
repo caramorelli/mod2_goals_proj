@@ -1,25 +1,41 @@
-<!-- About Section -->
-<div class="w3-container" style="padding:100px 16px" id="about">
-  <h3 class="w3-center"> Set <%= @current_user.name.capitalize %>'s Goals</h3>
-<br>
+<div class="splash-image">
 
-    <div class="w3-center">
-      <%= form_for @goal, class:"ui form" do |f|  %>
-      <div class="field">
-        <%= f.label :name, "Goal Name"%>
-        <%= f.text_field :name %>
+<div class="ui three column grid">
+  <!-- first column -->
+  <div class="column"></div>
+
+  <!-- second column -->
+
+  <div class="column" id="splash-box-signin">
+    <!-- About Section -->
+    <h1 class="ui header"> Set <%= @current_user.name.capitalize %>'s Goals</h1>
+      <br>
+
+
+            <% if flash[:errors] %>
+              <% flash[:errors].each do |e| %>
+              <h6> <%= e %></h6>
+              <% end %>
+              <% end %>
+
+
+      <div class="w3-center">
+        <%= form_for @goal, class:"ui form" do |f|  %>
+        <div class="field">
+          <%= f.label :name, "Goal Name"%>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :weekly_occurance, "Target Number of Days in a Week"%>
+          <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+        </div>
+
+        <%= f.hidden_field :user_id, :value => @current_user.id %>
+        <%= f.hidden_field :goal_counter, :value => 0 %>
+        <%= f.submit "⚽️" %>
+
+        <% end %>
       </div>
-      <div class="field">
-       <%= f.label :weekly_occurance, "Target Number of Days in a Week"%>
-        <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
-      </div>
-
-      <%= f.hidden_field :user_id, :value => @current_user.id %>
-      <%= f.hidden_field :goal_counter, :value => 0 %>
-      <%= f.submit "⚽️" %>
-
-      <% end %>
-    </div>
-
-
-</div>
+  </div>
+<!-- third column -->
+<div class="column"></div>
