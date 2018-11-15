@@ -77,12 +77,12 @@ body, html {
 
          %>  </p>
 
-         <%= button_to "Click", button_path(@third_goal), { :onclick => "debugger", :class=>"button", :method => :post }  %>
+         <%= button_to 'Complete Goal', button_path(@third_goal), method: :get %>
+         
 
 
 
 
-      <!-- <button onclick="myFunction()">Completed Goal!</button> -->
 
 
 
