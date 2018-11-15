@@ -1,82 +1,77 @@
 
 
-
+<div class="splash-image">
 
 <!-- About Section -->
-<div class="w3-container" style="padding:100px 16px" id="about">
-  <h3 class="w3-center"> <%= @current_user.name.upcase %>'s CURRENT GOALS</h3>
-  <p class="w3-center w3-large">check the box if completed for <%= Time.now.strftime("%m/%d/%Y") %> </p>
+
+<div class="w3-container" style="padding: 60px 16px" id="about">
+  <h3 class="ui block header" id="splash-box2"> <%= @current_user.name.upcase %>'s CURRENT GOALS
+  <br> Click "Complete!" button if completed for <%= Time.now.strftime("%m/%d/%Y") %> </h3>
 
 <!-- GOAL 1/3 -->
 
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
+  <div class="w3-row-padding w3-center" style="margin-top:60px">
     <div class="w3-third">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
-
+      <div class="container">
+      <a href="<%= goal_path(@first_goal) %>">  <%= image_tag "shoot.png" %> </a>
+        <div class="overlay">
+          <div class="text"> <%= link_to @first_goal.name, goal_path(@first_goal) %></div> </div> </div>
+ <br>
       <!-- BUTTON TO COMPLETE HABIT  -->
 
 
       <%= form_for @achievement do |f| %>
         <%= f.hidden_field :goal_id, :value => @first_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
-        <%= f.submit 'complete!' %>
+        <%= f.submit 'complete!', class: "positive ui button" %>
       <% end %>
-
+      <br>
       <!-- LINK TO DELETE GOAL -->
-      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      <%= button_to "Delete this goal", goal_path(@first_goal), method: :delete, class: "negative ui button"%>
     </div>
 
 <!-- GOAL 2/3 -->
-    <div class="w3-third">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
+<div class="w3-third">
+  <div class="container">
+  <a href="<%= goal_path(@second_goal) %>">  <%= image_tag "shoot.png" %> </a>
+    <div class="overlay">
+      <div class="text"> <%= link_to @second_goal.name, goal_path(@second_goal) %></div> </div> </div>
 
+<br>
       <!-- BUTTON TO COMPLETE HABIT  -->
 
 
       <%= form_for @achievement do |f| %>
-        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :goal_id, :value => @second_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
-        <%= f.submit 'complete!' %>
+        <%= f.submit 'complete!', class: "positive ui button" %>
       <% end %>
-
+  <br>
 
       <!-- LINK TO DELETE GOAL -->
-      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      <%= button_to "Delete this goal", goal_path(@second_goal), method: :delete, class: "negative ui button"%>
       </div>
 
 
 <!-- GOAL 3/3 -->
     <div class="w3-third">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal)
-
-         %>  </p>
-
-         <%= button_to "Click", button_path(@third_goal), { :onclick => "debugger", :class=>"button", :method => :post }  %>
-
-
-
-
-      <!-- <button onclick="myFunction()">Completed Goal!</button> -->
-
-
-
-
+      <div class="container">
+      <a href="<%= goal_path(@third_goal) %>">  <%= image_tag "shoot.png" %> </a>
+        <div class="overlay">
+          <div class="text"> <%= link_to @third_goal.name, goal_path(@third_goal) %></div> </div> </div>
 
 
       <!-- BUTTON TO COMPLETE HABIT  -->
-
+<br>
 
       <%= form_for @achievement do |f| %>
-        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :goal_id, :value => @third_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
-        <%= f.submit 'complete!' %>
+        <%= f.submit 'complete!', class: "positive ui button" %>
       <% end %>
-
+  <br>
       <!-- LINK TO DELETE GOAL -->
-      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      <%= button_to "Delete this goal", goal_path(@third_goal), method: :delete, class: "negative ui button"%>
 
     </div>
 
@@ -85,4 +80,4 @@
 </div>
 
 
-</body>
+</div>
