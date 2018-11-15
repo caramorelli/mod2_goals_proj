@@ -64,7 +64,7 @@
       <% if signed_in? %>
       <div class="w3-bar-item w3-button"> <%= image_tag "soccer-ball.png" %>  <%= current_user.name %> </div>
       <div class="w3-bar-item w3-button">
-      <form action="<%= goals_path %>" method="post">
+      <form action="<%= session_path %>" method="post">
         <%= auth_token_input %>
         <input type="hidden" name="_method" value="delete">
       <%= image_tag "timeout.png" %>  <input type="submit" value="Sign Out">
