@@ -37,7 +37,7 @@ class EventsController < ApplicationController
       @event.name = params[:event][:name]
       @event.start_time = params[:event][:start_time].to_datetime
       @event.save
-      
+
       redirect_to events_path
     end
 
@@ -58,13 +58,13 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   # DELETE /events/1.json
-  # def destroy
-  #   @event.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to events_url, notice: 'Event was successfully removed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @event.destroy
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: 'Event was successfully removed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

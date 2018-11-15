@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-
-
   # root to: 'users#index'
 
   root to: 'sessions#new'
-
-  # get '/button', to: 'achievements#create', as: 'button'
-  # get '/events', to: 'events#create', as: 'calendar_display'
 
   resources :calendars
   resources :notes
