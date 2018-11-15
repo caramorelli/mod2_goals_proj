@@ -1,28 +1,17 @@
-<div class="splash-image">
+<h2>Sign In</h2>
 
-<div class="ui three column grid">
-  <!-- first column -->
-  <div class="column"></div>
+<form action="<%= goals_path %>" method="post">
+  <%= auth_token_input %>
 
-  <!-- second column -->
+  <label for="user_username">
+    Username</label>
+    <input type="text" name="user[username]" value="" id="user_username">
 
-  <div class="column" id="splash-box-signin">
-    <h1 class="ui header"> Sign In</h1>
-    <br>
-          <form class="ui form">
-            <form action="<%= events_url %>" method="post">
-              <%= auth_token_input %>
-              <label> Username </label>
-              <input type="text" name="user[username]" value="" id="user_username">
-              <label> Password </label>
-              <input type="password" name="user[password]" value="">
-              <br>
 
-              <button class="ui button" type="submit">Submit</button>
-          </form>
-          <br>
-          <%= button_to "SIGN IN", goals_path, :method => :get, class: "positive ui button"%>
+  <label>
+    Password
+    <input type="password" name="user[password]" value="">
+  </label>
 
-  </div>
-<!-- third column -->
-<div class="column"></div>
+  <input type="submit" value="Sign In">
+</form>

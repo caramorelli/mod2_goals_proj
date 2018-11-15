@@ -59,24 +59,24 @@
 
       <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a> -->
       <a href="/events" class="w3-bar-item w3-button"> <%= image_tag "football-field.png" %> Calendar </a>
+    </div>
 
-      <!-- SIGNED IN USER ICON -->
+    <div class="w3-bar-item w3-button">
       <% if signed_in? %>
-      <div class="w3-bar-item w3-button"> <%= image_tag "soccer-ball.png" %>  <%= current_user.name %> </div>
-      <div class="w3-bar-item w3-button">
-      <form action="<%= session_path %>" method="post">
-        <%= auth_token_input %>
-        <input type="hidden" name="_method" value="delete">
-      <%= image_tag "timeout.png" %> Sign Out
-      </form>
-      </div>
+      <%= image_tag "soccer-ball.png" %>
+        <%= current_user.username %>
+        <form action="<%= session_url %>" method="post">
+          <%= auth_token_input %>
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign Out" id="sign_out_button">
+        </form>
       <% else %>
-
-        <a href="<%= new_session_url %>" class="w3-bar-item w3-button">Sign In</a>
-        <a href="<%= new_user_url %>" class="w3-bar-item w3-button">Sign Up</a>
+        <a href="<%= new_session_url %>">Sign In</a>
+        <a href="<%= new_user_url %>">Sign Up</a>
       <% end %>
 
-    </div>
+
+
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
