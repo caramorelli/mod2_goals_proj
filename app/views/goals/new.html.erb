@@ -1,14 +1,25 @@
+<!-- About Section -->
+<div class="w3-container" style="padding:100px 16px" id="about">
+  <h3 class="w3-center"> Set <%= @current_user.name.capitalize %>'s Goals</h3>
 <br>
-<br>
+
+    <div class="w3-center">
+      <%= form_for @goal, class:"ui form" do |f|  %>
+      <div class="field">
+        <%= f.label :name, "Goal Name"%>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+       <%= f.label :weekly_occurance, "Target Number of Days in a Week"%>
+        <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+      </div>
+
+      <%= f.hidden_field :user_id, :value => @current_user.id %>
+      <%= f.hidden_field :goal_counter, :value => 0 %>
+      <%= f.submit "⚽️" %>
+
+      <% end %>
+    </div>
 
 
-<%= form_for @goal do |f| %>
-  <%= f.label :name, "Goal Name"%>
-  <%= f.text_field :name %>
-  <%= f.label :weekly_occurance%>
-  <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
-  <%= f.hidden_field :user_id, :value => @current_user.id %>
-  <%= f.hidden_field :goal_counter, :value => 0 %>
-  <%= f.submit %>
-
-<% end %>
+</div>

@@ -1,35 +1,9 @@
 
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-body, html {
-    height: 100%;
-    line-height: 1.8;
-}
-/* Full height image header */
-.bgimg-1 {
-    background-position: center;
-    background-size: cover;
-    background-image: url("/w3images/mac.jpg");
-    min-height: 100%;
-}
-.w3-bar .w3-button {
-    padding: 16px;
-}
-</style>
-<body>
 
 
 
 <!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
+<div class="w3-container" style="padding:100px 16px" id="about">
   <h3 class="w3-center"> <%= @current_user.name.upcase %>'s CURRENT GOALS</h3>
   <p class="w3-center w3-large">check the box if completed for <%= Time.now.strftime("%m/%d/%Y") %> </p>
 
@@ -40,21 +14,18 @@ body, html {
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
       <p class="w3-large"> <%= link_to @first_goal.name, goal_path(@first_goal) %> </p>
 
-    <%= button_to 'Complete Goal', button_path(@first_goal), method: :get %>
+      <!-- BUTTON TO COMPLETE HABIT  -->
 
 
+      <%= form_for @achievement do |f| %>
+        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :completed, :value => true %>
+        <%= f.submit 'complete!' %>
+      <% end %>
 
-
-
-    <br>
-
-      <!-- INSERT NOTE FOR EACH HABIT  -->
-
-
-<!-- LINK TO DELETE GOAL -->
-<%= link_to "DELETE", goal_path(@first_goal), method: :delete %>
+      <!-- LINK TO DELETE GOAL -->
+      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
     </div>
-
 
 <!-- GOAL 2/3 -->
     <div class="w3-third">
@@ -62,15 +33,21 @@ body, html {
       <p class="w3-large"><%= link_to @second_goal.name, goal_path(@second_goal) %> </p>
 
       <!-- BUTTON TO COMPLETE HABIT  -->
-        <%= button_to 'Complete Goal', button_path(@second_goal), method: :get %>
 
 
-      <br>
-      <!-- INSERT NOTE FOR EACH HABIT  -->
+      <%= form_for @achievement do |f| %>
+        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :completed, :value => true %>
+        <%= f.submit 'complete!' %>
+      <% end %>
+
+
+      <!-- LINK TO DELETE GOAL -->
+      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
+      </div>
 
 
 <!-- GOAL 3/3 -->
-    </div>
     <div class="w3-third">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large"><%= link_to @third_goal.name, goal_path(@third_goal)
@@ -92,10 +69,18 @@ body, html {
       <!-- BUTTON TO COMPLETE HABIT  -->
 
 
+      <%= form_for @achievement do |f| %>
+        <%= f.hidden_field :goal_id, :value => @first_goal.id %>
+        <%= f.hidden_field :completed, :value => true %>
+        <%= f.submit 'complete!' %>
+      <% end %>
 
-      <br>
+      <!-- LINK TO DELETE GOAL -->
+      <%= link_to "Delete this goal", goal_path(@first_goal), method: :delete %>
 
     </div>
+
+
   </div>
 </div>
 

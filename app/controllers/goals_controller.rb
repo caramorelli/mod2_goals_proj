@@ -2,10 +2,9 @@
 
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:show, :edit, :update, :destroy]
-  before_action :current_user, only: [:index, :new, :create]
+  before_action :current_user, only: [:index, :new, :create, :edit, :update]
 
   def index
-
     if @current_user.goals.length >= 3
       @first_goal = @current_user.goals[0]
       @second_goal = @current_user.goals[1]
@@ -13,6 +12,7 @@ class GoalsController < ApplicationController
     else
       redirect_to new_goal_path
     end
+    @achievement = Achievement.new
   end
 
   def show
