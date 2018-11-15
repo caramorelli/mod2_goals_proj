@@ -58,7 +58,7 @@
       <a href= '/goals' class="w3-bar-item w3-button">  <%= image_tag "goal.png" %> All Goals</a>
 
       <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a> -->
-      <a href="calendar_path" class="w3-bar-item w3-button"> <%= image_tag "football-field.png" %> Calendar </a>
+      <a href="/events" class="w3-bar-item w3-button"> <%= image_tag "football-field.png" %> Calendar </a>
 
       <!-- SIGNED IN USER ICON -->
       <% if signed_in? %>
@@ -67,7 +67,7 @@
       <form action="<%= session_path %>" method="post">
         <%= auth_token_input %>
         <input type="hidden" name="_method" value="delete">
-      <%= image_tag "timeout.png" %>  <input type="submit" value="Sign Out">
+      <%= image_tag "timeout.png" %> Sign Out
       </form>
       </div>
       <% else %>
