@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.create(goal_params)
       if @goal.valid?
-        redirect_to @goal
+        redirect_to goals_path
       else
         flash[:errors] = @goal.errors.full_messages
         redirect_to new_goal_path

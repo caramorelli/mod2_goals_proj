@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'sessions#new'
 
-  resources :calendars
+  # resources :calendars
   resources :notes
   resources :achievements
   resources :goals

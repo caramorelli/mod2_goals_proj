@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       sign_in(@user)
-      redirect_to goals_path
+      redirect_to new_goal_path
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path
