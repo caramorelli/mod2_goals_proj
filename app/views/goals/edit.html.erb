@@ -1,15 +1,24 @@
-EDIT FORM
-<br>
+<!-- About Section -->
+<div class="w3-container" style="padding:100px 16px" id="about">
+  <h3 class="w3-center"> GOAL: <%= @goal.name.upcase %></h3>
+  <h5 class="w3-center"> Be careful! Changing target # of days a week will reset the counter!</h5>
+
 <br>
 
-GOAL: <%= @goal.name %>
-Be careful! Changing target # of days a week will reset the counter!
-<br>
-<br>
-<%= form_for @goal do |f| %>
-  <%= f.label :weekly_occurance, "Number of days in a week:"%>
-  <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
-  <%= f.hidden_field :goal_counter, :value => 0 %>
-  <%= f.submit %>
 
-<% end %>
+      <div class="w3-center">
+        <%= form_for @goal, class:"ui form" do |f|  %>
+        <div class="field">
+         <%= f.label :weekly_occurance, "Target Number of Days in a Week"%>
+          <%= f.number_field :weekly_occurance, in: 1..7, step: 1 %>
+        </div>
+
+        <%= f.hidden_field :goal_counter, :value => 0 %>
+        <%= f.submit "⚽️" %>
+
+        <% end %>
+
+
+
+
+    </div>
