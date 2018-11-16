@@ -1,14 +1,7 @@
 <div class="splash-image">
+    <div class="w3-container" style="padding:80px 16px" id="about">
 
-  <div class="ui three column grid">
-    <!-- first column -->
-    <div class="column"></div>
-
-
-
-    <!-- second column -->
-
-    <div class="column" id="splash-box-signin">
+        <div class="ui block header" id="splash-box">
 
       <% if flash[:errors] %>
         <% flash[:errors].each do |e| %>
@@ -16,8 +9,10 @@
         <% end %>
         <% end %>
 
-
-    <h1 class="ui header"> Sign Up</h1>
+<h5><%= image_tag "stadium.png" %></h5>
+    <h1 class="ui header"> Welcome! </h1>
+  <h5 class="ui sub header"> Sign Up Below </h5>
+  <br>
 <form action="<%= users_url %>" method="post" class="ui form">
   <%= auth_token_input %>
 
@@ -35,11 +30,13 @@
     Password
     <input type="password" name="user[password]" value="">
   </label>
+  <br>
+  <br>
 
-              <button class="ui button" type="submit">Let's go!</button>
+              <button class="positive ui button" type="submit">Let's go!</button>
               <br>
 
           <br>
   </div>
-<!-- third column -->
-<div class="column"></div>
+</div>
+</div>
