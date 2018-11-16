@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = current_user.events
     @goals = current_user.goals
     @notes = current_user.notes
   end
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
       @event = Event.new
       @event.name = params[:event][:name]
       @event.start_time = params[:event][:start_time].to_datetime
+      @event.user_id = @current_user.id
       @event.save
 
 
@@ -76,6 +78,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :start_time)
+      params.require(:event).permit(:name, :start_time, :user_id)
     end
 end

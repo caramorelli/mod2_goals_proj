@@ -18,6 +18,21 @@
           <div class="text"> <%= link_to @first_goal.name, goal_path(@first_goal) %></div> </div> </div>
  <br>
       <!-- BUTTON TO COMPLETE HABIT  -->
+
+    <% if @first_goal.achievements.length > 0 %>
+      <% week_arr = [] %>
+      <% @first_goal.achievements.reverse.each do |ach| %>
+        <% week_arr << ach if (Date.today - Date.parse(ach.created_at.to_s)).to_i < 7 %>
+      <% end %>
+      <% @first_goal[:goal_counter] = week_arr.count %>
+    <% end %>
+
+      <% if @first_goal[:goal_counter] == @first_goal[:weekly_occurance]  %>
+        <h3>Awesome! You completed all your goals for the week</h3>
+          <button type="button" disabled class='disabled_button'>Daily Goal Completed</button>
+      <% end %>
+
+
       <% unless @first_goal.achievements.length >= 1 &&  @first_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
         <%= form_for @achievement do |f| %>
           <%= f.hidden_field :goal_id, :value => @first_goal.id %>
@@ -27,6 +42,7 @@
       <% else %>
         <button type="button" disabled class='disabled_button'>Daily Goal Completed</button>
       <% end %>
+
 
       <br>
       <!-- LINK TO DELETE GOAL -->
@@ -42,6 +58,19 @@
 
 <br>
       <!-- BUTTON TO COMPLETE HABIT  -->
+
+      <% if @second_goal.achievements.length > 0 %>
+        <% week_arr = [] %>
+        <% @second_goal.achievements.reverse.each do |ach| %>
+          <% week_arr << ach if (Date.today - Date.parse(ach.created_at.to_s)).to_i < 7 %>
+        <% end %>
+        <% @second_goal[:goal_counter] = week_arr.count %>
+      <% end %>
+
+        <% if @second_goal[:goal_counter] == @second_goal[:weekly_occurance]  %>
+          <h3>Awesome! You completed all your goals for the week</h3>
+            <button type="button" disabled class='disabled_button'>Daily Goal Completed</button>
+        <% end %>
 
 
       <%= form_for @achievement do |f| %>
@@ -68,6 +97,20 @@
 
       <!-- BUTTON TO COMPLETE HABIT  -->
 <br>
+
+<% if @third_goal.achievements.length > 0 %>
+  <% week_arr = [] %>
+  <% @third_goal.achievements.reverse.each do |ach| %>
+    <% week_arr << ach if (Date.today - Date.parse(ach.created_at.to_s)).to_i < 7 %>
+  <% end %>
+  <% @third_goal[:goal_counter] = week_arr.count %>
+<% end %>
+
+  <% if @third_goal[:goal_counter] == @third_goal[:weekly_occurance]  %>
+    <h3>Awesome! You completed all your goals for the week</h3>
+      <button type="button" disabled class='disabled_button'>Daily Goal Completed</button>
+  <% end %>
+
 
     <% unless @third_goal.achievements.length >= 1 &&  @third_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
 

@@ -12,7 +12,9 @@ class GoalsController < ApplicationController
     else
       redirect_to new_goal_path
     end
+
     @achievement = Achievement.new
+
   end
 
   def show
