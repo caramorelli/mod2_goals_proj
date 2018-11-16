@@ -18,6 +18,13 @@
           <div class="text"> <%= link_to @first_goal.name, goal_path(@first_goal) %></div> </div> </div>
  <br>
       <!-- BUTTON TO COMPLETE HABIT  -->
+      <% if @first_goal[:counter] == @first_goal[:weekly_occurance]  %>
+        <h3>Awesome! You completed all your goals for the week</h3>
+      <% end %>
+
+      <% if @first_goal.created_atstrftime("%A") == DateTime.now.strftime("%A") && @first_goal.created_atstrftime("%m/%d/%Y") != DateTime.now.strftime("%m/%d/%Y") %>
+
+      <% end %>
 
       <% unless @first_goal.achievements.length >= 1 &&  @first_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
         <%= form_for @achievement do |f| %>
@@ -75,9 +82,8 @@
       <!-- BUTTON TO COMPLETE HABIT  -->
 <br>
 
-
-
     <% unless @third_goal.achievements.length >= 1 &&  @third_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
+
       <%= form_for @achievement do |f| %>
         <%= f.hidden_field :goal_id, :value => @third_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
