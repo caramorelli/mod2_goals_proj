@@ -37,7 +37,9 @@ class EventsController < ApplicationController
       @event.name = params[:event][:name]
       @event.start_time = params[:event][:start_time].to_datetime
       @event.save
-      
+
+
+
       redirect_to events_path
     end
 

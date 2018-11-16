@@ -18,6 +18,13 @@
           <div class="text"> <%= link_to @first_goal.name, goal_path(@first_goal) %></div> </div> </div>
  <br>
       <!-- BUTTON TO COMPLETE HABIT  -->
+      <% if @first_goal[:counter] == @first_goal[:weekly_occurance]  %>
+        <h3>Awesome! You completed all your goals for the week</h3>
+      <% end %>
+
+      <% if @first_goal.created_atstrftime("%A") == DateTime.now.strftime("%A") && @first_goal.created_atstrftime("%m/%d/%Y") != DateTime.now.strftime("%m/%d/%Y") %>
+
+      <% end %>
 
       <% unless @first_goal.achievements.length >= 1 &&  @first_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
         <%= form_for @achievement do |f| %>
@@ -45,11 +52,16 @@
       <!-- BUTTON TO COMPLETE HABIT  -->
 
 
-      <%= form_for @achievement do |f| %>
-        <%= f.hidden_field :goal_id, :value => @second_goal.id %>
-        <%= f.hidden_field :completed, :value => true %>
-        <%= f.submit 'complete!', class: "positive ui button" %>
+      <% unless @second_goal.achievements.length >= 1 &&  @second_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
+        <%= form_for @achievement do |f| %>
+          <%= f.hidden_field :goal_id, :value => @second_goal.id %>
+          <%= f.hidden_field :completed, :value => true %>
+          <%= f.submit 'complete!', class: "positive ui button" %>
+          <% end %>
+      <% else %>
+        <button type="button" disabled class='disabled_button'>Daily Goal Completed</button>
       <% end %>
+
   <br>
 
       <!-- LINK TO DELETE GOAL -->
@@ -70,13 +82,17 @@
       <!-- BUTTON TO COMPLETE HABIT  -->
 <br>
 
-
+    <% unless @third_goal.achievements.length >= 1 &&  @third_goal.achievements.any? { |ach| ach.created_at.strftime("%m%d%Y") == DateTime.now.strftime("%m%d%Y") } %>
 
       <%= form_for @achievement do |f| %>
         <%= f.hidden_field :goal_id, :value => @third_goal.id %>
         <%= f.hidden_field :completed, :value => true %>
         <%= f.submit 'complete!', class: "positive ui button" %>
-      <% end %>
+        <% end %>
+    <% else %>
+      <button type="button" disabled class='disabled_button'>Daily Goal Completed</button>
+    <% end %>
+
   <br>
       <!-- LINK TO DELETE GOAL -->
       <%= button_to "Delete this goal", goal_path(@third_goal), method: :delete, class: "negative ui button"%>
